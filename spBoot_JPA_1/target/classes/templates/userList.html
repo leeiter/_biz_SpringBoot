@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head th:fragment="listHead">
+<th:block th:include="head"></th:block>
+<style>
+h2 {
+	width: 90%;
+	margin: 20px auto;
+}
+
+table {
+	border-collapse: collapse;
+	width: 90%;
+	margin: 10px auto;
+}
+
+th, td {
+	white-space: nowrap;
+	padding: 10px 0;
+}
+
+.btn {
+	display: block;
+	margin: 30px auto;
+}
+
+td:nth-child(5) {
+	width: 10%;
+}
+
+a {
+	display: inline-block;
+	font-weight: bold;
+	padding: 5px 10px;
+	width: 80px;
+	background-color: red;
+	color: white;
+}
+
+a:hover {
+	background-color: black;
+	color: white;
+	text-decoration: none;
+}
+</style>
+<script>
+$(function() {
+	
+	$(document).on("click", "#btn_insert", function() {
+		document.location.href = "/user/insert"
+	})
+	
+	$(document).on("click", ".u_tr", function() {
+		// let id1 = $(this).attr("data-user-id")
+		let id = $(this).data("user-id")
+		// alert(id)
+		document.location.href = "/user/update?id=" + id
+	})
+	
+})
+</script>
+</head>
+<body th:fragment="listBody">
+<h2>MEMBER LIST</h2>
+<table class="table-bordered table-hover text-center">
+	<tr>
+		<th>이름</th>
+		<th>Email</th>
+		<th>전화번호</th>
+		<th>주소</th>
+		<th>비고</th>
+	</tr>
+	<tr th:each="user : ${userList}" th:data-user-id="${user.id}">
+		<td th:text="${user.username}" class="u_tr" th:attr="data-user-id=${user.id}">이름</td>
+		<td th:text="${user.email}">Email</td>
+		<td th:text="${user.phone}">전화번호</td>
+		<td th:text="${user.address}">주소</td>
+		<td th:data-user-id="${user.id}"><a th:href="@{/user/delete(id=${user.id})}">삭제</a></td>
+	</tr>
+</table>
+<button id="btn_insert" class="btn btn-primary">MEMBER 등록</button>
+</body>
+</html>
