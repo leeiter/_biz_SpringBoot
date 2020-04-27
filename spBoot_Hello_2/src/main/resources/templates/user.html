@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="styleSheet" type="text/css" href="/static/main.css">
+<link rel="styleSheet" type="text/css" th:href="@{/static/main.css}">
+</head>
+<body>
+	<h2>사용자 리스트</h2>
+	<table>
+		<tr>
+			<th>사용자명</th>
+			<th>비밀번호</th>
+			<th>Email</th>
+			<th>전화번호</th>
+			<th>주소</th>
+			<th>비고</th>
+		</tr>
+		<tr th:each="user : ${USERS}">
+			<td th:text="${user.username}">사용자명</td>
+			<td th:text="${user.password}">비밀번호</td>
+			<td th:text="${user.email}">Email</td>
+			<td th:text="${user.phone}">전화번호</td>
+			<td th:text="${user.address}">주소</td>
+			<td>
+				<p th:if="${user.username}=='홍길동'" th:text="${user.username}"></p>
+				<p th:unless="${user.username}=='홍길동'" th:text="'홍길동이 아니야'"></p>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
