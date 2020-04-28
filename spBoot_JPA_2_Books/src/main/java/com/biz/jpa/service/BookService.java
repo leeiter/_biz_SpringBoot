@@ -17,7 +17,6 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class BookService {
 	
-
 	private final BookRepository bookDao;
 
 	public BookVO save(BookVO bookVO) {
@@ -27,20 +26,16 @@ public class BookService {
 
 	public List<BookVO> selectAll() {
 		List<BookVO> bookList = bookDao.findAll();
-		// TODO Auto-generated method stub
 		return bookList;
 	}
 
 	public Optional<BookVO> findById(long bookId) {
 		Optional<BookVO> bookVO = bookDao.findById(bookId);
-		// TODO Auto-generated method stub
 		return bookVO;
 	}
 
 	public void delete(long bookId) {
 		bookDao.deleteById(bookId);
-		// TODO Auto-generated method stub
-		
 	}
 
 	/*
@@ -48,7 +43,6 @@ public class BookService {
 	 * pagination을 구현
 	 */
 	public Page<BookVO> getPageList(Pageable page) {
-		
 		int pageNum = 0;
 		
 		if(page.getPageNumber() == 0) pageNum = 0;

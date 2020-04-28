@@ -37,7 +37,7 @@ public class BookController {
 	public String book(BookVO bookVO) {
 		log.debug(bookVO.toString());
 		BookVO vo = bService.save(bookVO);
-		return "redirect:/book/list";
+		return "redirect:/book/pagelist";
 	}
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -53,7 +53,6 @@ public class BookController {
 		try {
 			bookId = Long.valueOf(id);
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
@@ -65,8 +64,7 @@ public class BookController {
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(BookVO bookVO) {
 		BookVO vo = bService.save(bookVO);
-		return "redirect:/book/list";
-		
+		return "redirect:/book/pagelist";
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -76,11 +74,10 @@ public class BookController {
 			bookId = Long.valueOf(id);
 		} catch (Exception e) {
 			e.printStackTrace();
-			// TODO: handle exception
 		}
-		bService.delete(bookId);
-		return "redirect:/book/list";
 		
+		bService.delete(bookId);
+		return "redirect:/book/pagelist";
 	}
 	
 	// @ResponseBody
@@ -89,7 +86,6 @@ public class BookController {
 		Page<BookVO> bookList = bService.getPageList(page);
 		model.addAttribute("bookList", bookList);
 		return "booklist";
-		// return "pagelist";
 	}
 
 }

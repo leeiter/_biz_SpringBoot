@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head th:fragment="listHead">
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<th:block th:include="head"></th:block>
 <style>
+h2 {
+	width: 90%;
+	margin: 20px auto;
+}
+
 table {
-	border: 1px solid blue;
 	border-collapse: collapse;
 	width: 90%;
 	margin: 10px auto;
@@ -13,7 +16,40 @@ table {
 
 th, td {
 	white-space: nowrap;
-	border: 1px solid blue;
+	padding: 10px 0;
+}
+
+.btn {
+	display: block;
+	margin: 30px auto;
+}
+
+td:nth-child(6) {
+	width: 10%;
+}
+
+a {
+	display: inline-block;
+	font-weight: bold;
+	padding: 5px 10px;
+	width: 80px;
+	background-color: red;
+	color: white;
+}
+
+a:hover {
+	background-color: black;
+	color: white;
+	text-decoration: none;
+}
+
+nav {
+	margin-top: 30px;
+}
+
+ul {
+	width: 25%;
+	margin: 10px auto;
 }
 </style>
 <script>
@@ -33,7 +69,7 @@ $(function() {
 </head>
 <body th:fragment="listBody">
 <h2>BOOK LIST</h2>
-<table>
+<table class="table-bordered table-hover text-center">
 	<tr>
 		<th>도서명</th>
 		<th>출판사</th>
@@ -51,8 +87,7 @@ $(function() {
 		<td th:data-user-id="${book.id}"><a th:href="@{/book/delete(id=${book.id})}">삭제</a></td>
 	</tr>
 </table>
-<button id="btn_insert">BOOK 등록</button>
-
 <th:block th:include="page" />
+<button id="btn_insert" class="btn btn-primary">BOOK 등록</button>
 </body>
 </html>
