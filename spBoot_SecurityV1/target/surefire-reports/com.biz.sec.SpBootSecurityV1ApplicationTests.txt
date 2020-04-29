@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: com.biz.sec.SpBootSecurityV1ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.388 s <<< FAILURE! - in com.biz.sec.SpBootSecurityV1ApplicationTests
+contextLoads  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: java.lang.IllegalStateException: Failed to execute CommandLineRunner
+Caused by: org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [UK_c190nfu2w5xwvexf9dv08grsq]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'leeiter' for key 'UK_c190nfu2w5xwvexf9dv08grsq'
+

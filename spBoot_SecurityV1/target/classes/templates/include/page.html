@@ -1,0 +1,29 @@
+<article>
+	<!-- 처음 시작하는 Pagination 공식 -->
+	<ul class="pagination justify-content-center" th:with="start=${T(Math).floor(bbsList.number / 10) * 10 + 1},
+		last=(${start + 9 < bbsList.totalPages ? start + 9 : bbsList.totalPages == 0 ? 1 : bbsList.totalPages})">
+		<!-- 3항연산자를 사용하여 0일 경우는 1을 표시하고 나머지 경우는 totalPages로 보여라 -->
+	
+		<li class="page-item">
+			<a class="page-link" th:href="@{/bbs/list(page=1)}">처음</a>
+		</li>
+	
+		<li th:class="${bbsList.first} ? 'page-item disabled' : 'page-item'">
+			<a class="page-link" th:href="@{/bbs/list(page=${bbsList.number})}">&lt;</a>
+		</li>
+	
+		<li th:class="${page == bbsList.number + 1} ? 'page-item active' : 'page-item'" th:each="page : ${#numbers.sequence(start,last)}">
+			<a class="page-link" th:href="@{/bbs/list(page=${page})}" th:text="${page}"></a>
+		</li>
+		
+		<li th:class="${bbsList.last} ? 'page-item disabled' : 'page-item'">
+			<a class="page-link" th:href="@{/bbs/list(page=${bbsList.number + 2})}">&gt;</a>
+		</li>
+		
+		<li class="page-item">
+			<a class="page-link" th:href="@{/bbs/list(page=${bbsList.totalPages})}">끝</a>
+		</li>
+
+	
+	</ul>
+</article>

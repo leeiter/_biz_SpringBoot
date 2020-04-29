@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -32,7 +33,8 @@ import lombok.ToString;
 @Builder
 
 @Entity
-@Table(name = "tbl_users", schema = "spBoot")
+@Table(name = "tbl_users", schema = "spBoot",
+		uniqueConstraints = {@UniqueConstraint(name = "uk_username", columnNames = {"USERNAME"})})
 public class UserVO implements UserDetails {
 	
 	/*
@@ -47,6 +49,7 @@ public class UserVO implements UserDetails {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", columnDefinition = "bigint")
 	private Long id;
 	
 	@Column(name = "username", unique = true, length = 64)

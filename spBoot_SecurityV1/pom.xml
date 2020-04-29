@@ -33,6 +33,7 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
+		<!-- hidden 값 자동 생성 -->
 		<!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5 -->
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>

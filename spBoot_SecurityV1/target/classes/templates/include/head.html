@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<title>My Boot Project</title>
+<link rel="styleSheet" type="text/css" th:href="@{/static/css/main.css}">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<script>
+	$(function() {
+		
+		$(document).on("click", "a.logout", function() {
+			if(confirm("로그아웃 할까요?")) {
+				let _csrf_token = $(this).data("token")
+				$.post("[[@{/logout}]]", {
+					"[[${_csrf.parameterName}]]" : "[[${_csrf.token}]]"
+					
+				}, function() {
+					document.location.replace("[[@{/}]]")
+				})
+			}
+		})
+	})
+	</script>
