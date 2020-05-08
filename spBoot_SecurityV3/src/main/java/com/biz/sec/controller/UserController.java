@@ -42,11 +42,7 @@ public class UserController {
 		 * -- 객체가 null이어도 무시하고 진행
 		 */
 		Optional<UserVO> opUserVO = Optional.of(userVO);
-		
 		userService.insert(opUserVO);
-		
-
-		
 		return "redirect:/";
 	}
 	

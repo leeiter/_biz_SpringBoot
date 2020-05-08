@@ -4,7 +4,6 @@
 <th:block th:include="include/head"/>
 <script>
 $(function() {
-	
 	$(document).on("click", "button", function() {
 		let text = $(this).text()
 		if(text == "JOIN") {
@@ -16,7 +15,6 @@ $(function() {
 </head>
 <body>
 <h2>여기는 Login form 입니다.</h2>
-
 <nav th:replace="include/layout :: nav" />
 
 <!-- 
@@ -47,6 +45,5 @@ $(function() {
 </form>
 
 <nav th:replace="include/layout :: footer" />
-
 </body>
 </html>

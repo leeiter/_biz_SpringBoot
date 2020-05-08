@@ -4,7 +4,6 @@
 <th:block th:include="include/head" />
 </head>
 <body>
-
 <h2>페이지 BBS 구현</h2>
 <nav th:replace="include/layout :: nav" />
 
@@ -20,13 +19,10 @@
 		<td th:text="${bbs.bbsAuth}">작성자</td>
 		<td th:text="${bbs.bbsTitle}">제목</td>
 	</tr>
-	
 </table>
 
 <th:block th:include="include/page" />
 
-
 <footer th:replace="include/layout :: footer" />
-
 </body>
 </html>

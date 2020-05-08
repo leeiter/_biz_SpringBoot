@@ -30,8 +30,6 @@ public class UserService {
 		userVO.setAccountNonLocked(true);
 		userVO.setCredentialsNonExpired(true);
 		UserVO retUserVO = uDao.save(userVO);
-		// TODO Auto-generated method stub
-		
 	}
 
 }

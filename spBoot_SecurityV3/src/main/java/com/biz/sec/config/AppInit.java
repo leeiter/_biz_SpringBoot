@@ -26,8 +26,6 @@ public class AppInit implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
-		return ;
 		/*
 		 * Optional 클래스로 vo 클래스를 wrapping 했을 때
 		 * vo에 담긴 데이터가 있으면 isPresent()가 true가 된다.
@@ -36,33 +34,30 @@ public class AppInit implements CommandLineRunner {
 		 * return 해서 끝내라
 		 */
 		/*
-		Optional<UserVO> vo = uDao.findByUsername("leeiter");
-		if(vo.isPresent()) return;
-		
-		UserVO userVO = UserVO.builder()
-				.username("leeiter")
-				.password("12345")
-				.build();
-		
-		uDao.save(userVO);
-		
-		UserRole uRole = UserRole.builder()
-				.username("leeiter")
-				.roleName("ADMIN")
-				.build();
-		
-		urDao.save(uRole);
-		
-		uRole = UserRole.builder()
-				.username("leeiter")
-				.roleName("USER")
-				.build();
-		
-		urDao.save(uRole);
+			Optional<UserVO> vo = uDao.findByUsername("leeiter");
+			if(vo.isPresent()) return;
+			
+			UserVO userVO = UserVO.builder()
+					.username("leeiter")
+					.password("12345")
+					.build();
+			
+			uDao.save(userVO);
+			
+			UserRole uRole = UserRole.builder()
+					.username("leeiter")
+					.roleName("ADMIN")
+					.build();
+			
+			urDao.save(uRole);
+			
+			uRole = UserRole.builder()
+					.username("leeiter")
+					.roleName("USER")
+					.build();
+			
+			urDao.save(uRole);
 		*/
 	}
-	
-	
 
-		
 }

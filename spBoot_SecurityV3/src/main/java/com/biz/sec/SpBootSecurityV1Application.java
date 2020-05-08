@@ -25,18 +25,12 @@ public class SpBootSecurityV1Application {
 	 * 이 method는 @Bean Annotation을 제거하면
 	 * 자동 실행을 하지 않는다.
 	 */
-	//
-	@Bean 
+	// @Bean 
 	public CommandLineRunner initBbsData(BBsDao bDao) {
 		return new CommandLineRunner() {
-			
-			/*
-			 * 인라인 클래스 선언
-			 */
+			// 인라인 클래스 선언
 			@Override
-			public void run(String... args) throws Exception {
-				// TODO Auto-generated method stub
-				
+			public void run(String... args) throws Exception {				
 				for(int i = 0; i < 10 ; i++) {
 					LocalDate localDate = LocalDate.now();
 					LocalDateTime lt = LocalDateTime.now();

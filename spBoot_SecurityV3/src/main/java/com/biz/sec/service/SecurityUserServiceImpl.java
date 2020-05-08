@@ -22,7 +22,6 @@ import com.biz.sec.domain.UserRole;
 import com.biz.sec.domain.UserVO;
 import com.biz.sec.repository.UserDao;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -34,11 +33,9 @@ public class SecurityUserServiceImpl implements UserDetailsService {
 	
 	@Autowired
 	public SecurityUserServiceImpl(UserDao uDao) {
-		// TODO Auto-generated constructor stub
 		this.uDao = uDao;
 		this.passwordEncoder = new BCryptPasswordEncoder();
 	}
-	
 	
 	@Transactional
 	@Override
@@ -79,17 +76,8 @@ public class SecurityUserServiceImpl implements UserDetailsService {
 		return authorities;
 	}
 	
-	
-	
-	
-	
 	public PasswordEncoder getPasswordEncoder() {
 		return this.passwordEncoder;
 	}
-	
-	
-	
-	
-	
 
 }

@@ -8,9 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class UtilsConfig {
 	
-	/*
-	 * <bean></bean>를 대신하는 java 설정
-	 */
+	// <bean></bean>를 대신하는 java 설정
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();

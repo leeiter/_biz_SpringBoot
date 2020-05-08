@@ -5,10 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
@@ -28,11 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private final SecurityUserServiceImpl sUserService;
 	private final PasswordEncoder PasswordEncoder;
 
-
-
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		// TODO Auto-generated method stub
 		// super.configure(web);
 		
 		/*
@@ -42,12 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/static/images/**")
 		.antMatchers("/static/music/**");
 	}
-	
 
-
-	
-	
-	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		// super.configure(http);
@@ -66,30 +56,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.authorizeRequests().and().formLogin().loginPage("/user/login").failureUrl("/user/login?error")
 			.usernameParameter("username").passwordParameter("password").and().logout().logoutSuccessUrl("/");
 	}
-	
-	
 
-
-	/*
-	 * 
-	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// TODO Auto-generated method stub
 		// super.configure(auth);
-		
 		auth.userDetailsService(sUserService).passwordEncoder(PasswordEncoder);
-
-		
 	}
-	
 
-	
-	
-	
-	
-
-	
 	/*
 	 * html templates 파일에서 sec: tag를 사용할 때
 	 * 값, 설정, 함수 등을 사용할 수 있도록 객체를 전달하는 용도
@@ -103,16 +76,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public SpringSecurityDialect springSecurityDialect() {
 		return new SpringSecurityDialect();
 	}
-
-
-
-
-
-
-
-
-
-
-
 	
 }
